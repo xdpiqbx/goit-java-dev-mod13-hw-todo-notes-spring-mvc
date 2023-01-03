@@ -18,9 +18,11 @@ public class NoteMapStorage{
     for (String key: mockData.keySet()) {
       Note note = new Note();
       String value = mockData.get(key);
+      long id = (key+value).hashCode();
+      note.setId(id);
       note.setTitle(key);
       note.setContent(value);
-      filledByMockData.put((long)(key+value).hashCode(), note);
+      filledByMockData.put(id, note);
     }
     return filledByMockData;
   }
